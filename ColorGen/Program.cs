@@ -20,7 +20,7 @@ namespace ColorGen
 				}
 				else
 				{
-					Console.WriteLine($"// Color.FromRgba({ToInt(color.R)}, {ToInt(color.G)}, {ToInt(color.B)}), {ToInt(color.A)}");
+					Console.WriteLine($"// Color.FromRgba({ToInt(color.R)}, {ToInt(color.G)}, {ToInt(color.B)}, {ToInt(color.A)})");
 				}
 
 				foreach (ObsoleteAttribute obsolete in field.GetCustomAttributes (typeof (ObsoleteAttribute), inherit: false))
