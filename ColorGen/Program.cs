@@ -34,7 +34,14 @@ namespace ColorGen
 
 				// See: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#the-round-trip-r-format-specifier
 				var format = "R";
-				Console.WriteLine($"public static readonly Color {field.Name} = new Color ({color.R.ToString (format)}f, {color.G.ToString(format)}f, {color.B.ToString(format)}f, {color.A.ToString(format)}f, Mode.Rgb, {color.Hue.ToString(format)}f, {color.Saturation.ToString(format)}f, {color.Luminosity.ToString(format)}f);");
+				if (color.A == 1)
+				{
+					Console.WriteLine($"public static readonly Color {field.Name} = new Color ({color.R.ToString(format)}f, {color.G.ToString(format)}f, {color.B.ToString(format)}f);");
+				}
+				else
+				{
+					Console.WriteLine($"public static readonly Color {field.Name} = new Color ({color.R.ToString(format)}f, {color.G.ToString(format)}f, {color.B.ToString(format)}f, {color.A.ToString(format)}f);");
+				}
 			}
 		}
 
